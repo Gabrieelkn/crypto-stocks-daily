@@ -1,19 +1,5 @@
-import HeroSection from "@/components/layout/heroSection";
-import Separator from "@/components/separator";
 import Card from "@/components/card";
-import { fetchAllNews } from "@/utils/fetchNews";
-
-export const metadata = {
-  title: "CryptoStocksDaily",
-  description:
-    "Stay updated with the latest crypto and stocks news articles and insights.",
-  openGraph: {
-    title: "CryptoStocksDaily",
-    description:
-      "Stay updated with the latest crypto and stocks news articles and insights.",
-    type: "website",
-  },
-};
+import { fetchCategoryNews } from "@/utils/fetchNews";
 
 interface Article {
   content: string;
@@ -25,22 +11,20 @@ interface Article {
   title: string;
 }
 
-export default function Home() {
+export default function Stocks({ params }: { params: { category: string } }) {
   return (
     <div className="min-h-screen bg-gray-100">
-      <HeroSection />
-      <Separator />
-      <div className="container mx-auto flex flex-col lg:flex-row lg:items-start lg:gap-8  px-4 md:px-8 lg:px-20">
+      <div className="container mx-auto flex flex-col lg:flex-row lg:items-start lg:gap-8 px-4 md:px-8 lg:px-20">
         <div>
-          <HowTo />
+          <HowTo slug={params.category} />
         </div>
       </div>
     </div>
   );
 }
 
-async function HowTo() {
-  const res = await fetchAllNews();
+async function HowTo({ slug }: { slug: string }) {
+  const res = await fetchCategoryNews(slug);
 
   if (!res || !res.articles) {
     return (
@@ -60,7 +44,9 @@ async function HowTo() {
   return (
     <section className="py-12">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-start mb-8">Latest articles</h2>
+        <h2 className="text-3xl font-bold text-start mb-8">
+          Latest {slug} articles
+        </h2>
         {posts.length === 0 ? (
           <p>No articles available.</p>
         ) : (
