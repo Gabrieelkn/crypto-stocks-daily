@@ -2,6 +2,7 @@ import HeroSection from "@/components/layout/heroSection";
 import Separator from "@/components/separator";
 import Card from "@/components/card";
 import { fetchAllNews } from "@/utils/fetchNews";
+import { Article } from "@/utils/types";
 
 export const metadata = {
   title: "CryptoStocksDaily",
@@ -15,26 +16,12 @@ export const metadata = {
   },
 };
 
-interface Article {
-  content: string;
-  date: string;
-  image: string;
-  source: string;
-  id: string;
-  author: string;
-  title: string;
-}
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       <HeroSection />
       <Separator />
-      <div className="container mx-auto flex flex-col lg:flex-row lg:items-start lg:gap-8  px-4 md:px-8 lg:px-20">
-        <div>
-          <HowTo />
-        </div>
-      </div>
+      <HowTo />
     </div>
   );
 }
@@ -59,7 +46,7 @@ async function HowTo() {
 
   return (
     <section className="py-12">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 md:px-8 lg:px-20">
         <h2 className="text-3xl font-bold text-start mb-8">Latest articles</h2>
         {posts.length === 0 ? (
           <p>No articles available.</p>

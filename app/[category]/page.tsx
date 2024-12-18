@@ -1,15 +1,6 @@
 import Card from "@/components/card";
 import { fetchCategoryNews } from "@/utils/fetchNews";
-
-interface Article {
-  content: string;
-  date: string;
-  image: string;
-  source: string;
-  id: string;
-  author: string;
-  title: string;
-}
+import { Article } from "@/utils/types";
 
 export default function Stocks({ params }: { params: { category: string } }) {
   return (
