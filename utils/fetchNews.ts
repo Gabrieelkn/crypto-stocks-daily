@@ -23,7 +23,7 @@ export async function fetchAllNews() {
       const dateA = new Date(a.date).getTime();
       const dateB = new Date(b.date).getTime();
 
-      return dateB - dateA; // Sort in descending order
+      return dateB - dateA;
     });
 
     return { status: 200, articles: sortedArticles };
@@ -112,7 +112,7 @@ export async function fetchCategoryNews(category: string) {
       const dateA = new Date(a.date).getTime();
       const dateB = new Date(b.date).getTime();
 
-      return dateB - dateA; // Sort in descending order
+      return dateB - dateA;
     });
 
     return {
