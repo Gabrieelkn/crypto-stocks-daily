@@ -1,3 +1,4 @@
+"use server";
 import Card from "@/components/card";
 import { fetchCategoryNews } from "@/utils/fetchNews";
 import { Article } from "@/utils/types";
