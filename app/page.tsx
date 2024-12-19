@@ -21,12 +21,12 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100">
       <HeroSection />
       <Separator />
-      <HowTo />
+      <News />
     </div>
   );
 }
 
-async function HowTo() {
+async function News() {
   const res = await fetchAllNews();
 
   if (!res || !res.articles) {
