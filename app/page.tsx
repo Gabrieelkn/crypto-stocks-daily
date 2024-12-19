@@ -1,4 +1,4 @@
-import HeroSection from "@/components/layout/heroSection";
+import HeroSection from "@/components/heroSection";
 import Separator from "@/components/separator";
 import Card from "@/components/card";
 import { fetchAllNews } from "@/utils/fetchNews";
