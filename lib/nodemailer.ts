@@ -14,7 +14,7 @@ export const sendMail = async (
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: "ggabi8878@gmail.com",
+    to: process.env.EMAIL,
     subject,
     html: otpText,
   };
