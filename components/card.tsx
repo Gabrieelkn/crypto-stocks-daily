@@ -1,15 +1,6 @@
+import { Article } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
-
-interface Article {
-  content: string;
-  date: string;
-  image: string;
-  source: string;
-  id: string;
-  author: string;
-  title: string;
-}
 
 export default function Card({ article }: { article: Article }) {
   return (
